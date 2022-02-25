@@ -1,0 +1,160 @@
+
+desc bazarbala.BAZAR_BALA_CUST_MST;
+
+ALTER TABLE bazarbala.BAZAR_ADDRESS_MST  ADD ID varchar(45) ;
+commit;
+
+CREATE TABLE bazarbala.BAZAR_BALA_CUST_MST 
+  (HOME_ID int NOT NULL AUTO_INCREMENT,
+   CUSTOMER_ID varchar(255) DEFAULT '100',
+   ADDRESS_ID  varchar(255) DEFAULT '100',
+   ADDRESS varchar(45) DEFAULT '300',
+   ZIPCODE int DEFAULT NULL,
+   FIRST_NAME varchar(45) DEFAULT '100',
+   LAST_NAME varchar(45) DEFAULT '100',
+   PHONE_NO varchar(255) DEFAULT NULL,
+   EMAIL_ID varchar(45) DEFAULT '300',
+   PWD varchar(255) DEFAULT NULL,
+   PRIMARY KEY (`HOME_ID`),UNIQUE KEY `HOME_ID_UNIQUE` (`HOME_ID`));
+commit;
+
+
+CREATE TABLE bazarbala.BAZAR_ADDRESS_MST (`ADDRESS_ID` int NOT NULL AUTO_INCREMENT,
+         `ADDRESS` varchar(45) DEFAULT '300',`ZIPCODE` int DEFAULT NULL,
+         `NAME` varchar(45) DEFAULT '100',
+         `USER_TYPE` varchar(45) DEFAULT '100',
+		  PRIMARY KEY (`ADDRESS_ID`),
+          UNIQUE KEY `ADDRESS_ID_UNIQUE` (`ADDRESS_ID`))
+         ;
+commit;
+
+CREATE TABLE bazarbala.BAZAR_BALA_SUPP_MST (`SHOP_ID` int NOT NULL AUTO_INCREMENT,`SUPPLIER_ID` varchar(255) DEFAULT '100',`ADDRESS_ID`  varchar(255) DEFAULT '100',`SHOP_NAME` varchar(45) DEFAULT '100',`ADDRESS` varchar(45) DEFAULT '300',`ZIPCODE` int DEFAULT NULL,`PHONE_NO` varchar(255) DEFAULT NULL,`EMAIL_ID` varchar(45) DEFAULT '300',`PWD` varchar(255) DEFAULT NULL,`CATEGORY` varchar(45) DEFAULT '300',PRIMARY KEY (`SHOP_ID`),UNIQUE KEY `SHOP_ID_UNIQUE` (`SHOP_ID`)) ENGINE=InnoDB AUTO_INCREMENT=952910 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+commit;
+
+CREATE TABLE bazarbala.bazar_bala_mst (
+  SHOP_ID int NOT NULL AUTO_INCREMENT,
+  SHOP_NAME varchar(45) DEFAULT '100',
+  SHOP_ADDRESS varchar(45) DEFAULT '300',
+  ZIPCODE int DEFAULT NULL,
+  SHOP_IMAGE blob,
+  SHOP_URL varchar(45) DEFAULT '300',
+  SHOP_OWNER_EMAIL_ID varchar(45) DEFAULT '300',
+  PAYMENT_PREFERANCE varchar(45) DEFAULT '12',
+  PHONE_NO varchar(255) DEFAULT NULL,
+  SHOP_OWNER_PWD varchar(255) DEFAULT NULL,
+  SHOP_CATEGORY varchar(15) DEFAULT NULL,
+  PRIMARY KEY (`SHOP_ID`),
+  UNIQUE KEY `SHOP_ID_UNIQUE` (`SHOP_ID`)
+);
+
+============================================================
+Four new Table
+============================================================
+Create table ProductDetail (
+productCode varchar(255),
+supplierId varchar(45),
+name varchar(255),
+categoryCode varchar(45),
+description varchar(255),
+quantityType enum( 'KG','NUMBER','LITER'),
+quantity int,
+stock varchar(45),
+origin enum('INDIA','MADE_IN_CHAINA','OTHERS'),
+brand varchar(45),
+govApproved varchar(45),
+image varchar(255),
+startDate varchar(45),
+endDate varchar(45));
+=====================================================
+drop this table first and then create
+drop table Discount;
+Run the create table for discount which is given below
+TRUNCATE TABLE bazarbala.ProductDetail;
+TRUNCATE TABLE bazarbala.Price;
+TRUNCATE TABLE bazarbala.Category;
+TRUNCATE TABLE bazarbala.Discount;
+
+than go for import fresh data 
+======================================================
+create table Discount (
+productCode varchar(255),
+supplierId varchar(45),
+typeOfDiscount enum('NOTDEFINED','PERCENTAGE','FLATAMOUNT','QUANTITY'),
+discountStartDate varchar(45),discount varchar(45),discountEndDate varchar(45));
+================================================================================
+create table Price (productCode varchar(255),
+supplierId varchar(45),
+basePrice double,
+sellPrice double,
+currencyType enum('RS','USD','DOLLAR'));
+=====================================================
+create table Category (productCode varchar(255),
+supplierId varchar(45),
+name varchar(255),
+description varchar(255),
+imageId varchar(255));
+=========================================================
+
+Create table Delivery (
+deliveryId integer not null,
+supplierId varchar(45) not null,
+customerId varchar(45) not null,
+deliveryStatus enum('INPROGRESS','ONTHEWAY','COMPLETED','PICKUP'),
+orderId integer not null,
+deliveryDateTime varchar(45) not null,
+paymentMethod enum('NOTDEFINE','CASHONDELIVERY','PAYPAL','CREDITCARD','NETBANKING','DEBITCART'),
+deliveryMethod enum('NOTDEFINE','PICKUP','HOMEDELIVEY','SHIPPINGADDRESSDELIVERY'),
+ShippingAddress varchar(255),
+shippingInstruction varchar(255),
+shippingTeamId integer,
+phoneNumber varchar(45),
+isOkaytoCall boolean);
+===================================================================================================
+Create table OrderHistory (
+orderId integer not null,
+supplierId varchar(45) not null,
+customerId varchar(45) not null,
+orderSubTotal double not null,
+orderDate varchar(45) not null,
+orderStatus enum('INCOMPLETE','COMPLETE','SUBMITTED'),
+orderDtail varchar(255),
+taxPercentange  double not null,
+paymentMethod enum('NOTDEFINE','CASHONDELIVERY','PAYPAL','CREDITCARD','NETBANKING','DEBITCART'),
+deliveryMethod enum('NOTDEFINE','PICKUP','HOMEDELIVEY','SHIPPINGADDRESSDELIVERY'),
+ShippingAddress varchar(255),
+zipCode  varchar(45),
+shippingInstruction varchar(255),
+shippingTeamId integer,
+deliveryCompleted boolean,
+phoneNumber varchar(45),
+isOkaytoCall boolean);
+=========================================================================================
+Create table CustomerOrder (
+orderId integer not null,
+supplierId varchar(45) not null,
+customerId varchar(45) not null,
+orderSubTotal double not null,
+orderDate varchar(45) not null,
+orderStatus enum('INCOMPLETE','COMPLETE','SUBMITTED'),
+orderDtail varchar(255),
+taxPercentange  double not null,
+paymentMethod enum('NOTDEFINE','CASHONDELIVERY','PAYPAL','CREDITCARD','NETBANKING','DEBITCART'),
+deliveryMethod enum('NOTDEFINE','PICKUP','HOMEDELIVEY','SHIPPINGADDRESSDELIVERY'),
+ShippingAddress varchar(255),
+zipCode  varchar(45),
+shippingInstruction varchar(255),
+shippingTeamId integer,
+deliveryCompleted boolean,phoneNumber varchar(45),
+isOkaytoCall boolean);
+=======================================================================================
+Create table OrderItem (
+itemId integer not null,
+orderId integer not null,
+productCode varchar(255) not null,
+quantity integer not null,
+totalPrice double not null,
+CurrencyType enum('RS','USD','DOLLAR'),
+discount integer,
+Discount_Type enum('NOTDEFINED','PERCENTAGE','FLATAMOUNT','QUANTITY'));
+
+

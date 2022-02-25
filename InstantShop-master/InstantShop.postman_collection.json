@@ -1,0 +1,615 @@
+{
+	"info": {
+		"_postman_id": "0f3dd56b-691e-4d5b-a5c3-351d7613efca",
+		"name": "InstantShop",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8089/user/signUpSupplier",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"address\": \"19928 Bothel everethh\",\n    \"zipCode\": \"98012\",\n    \"shopName\": \"sunnyMarket\",\n    \"phoneNnumber\": \"4568956666\",\n    \"emailId\": \"amitabhi.sinha@gmail.com\",\n    \"supplierPassword\": \"amitabh\",\n    \"category\": \"Food\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8089/user/signUpSupplier",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"user",
+						"signUpSupplier"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8089/user/signUPCustomer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"address\": \"19928 Bothel everethh\",\n    \"zipCode\": \"98012\",\n    \"firstName\": \"Amitabh\",\n    \"lastName\": \"sinha\",\n    \"phoneNnumber\": \"4256290045\",\n    \"emailId\": \"amitabhi.sinha@gmail.com\",\n    \"customerPwd\": \"amitabh\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8089/user/signUPCustomer",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"user",
+						"signUPCustomer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8089/supplier/availability?zipCode=98012&shopType=all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8089/supplier/availability?zipCode=98012&shopType=all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"supplier",
+						"availability"
+					],
+					"query": [
+						{
+							"key": "zipCode",
+							"value": "98012"
+						},
+						{
+							"key": "shopType",
+							"value": "all"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8089/user/auth/v1/authAndCreateToken",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"phoneNo\": \"4256290045\",\n    \"password\": \"amitabh\",\n    \"userType\":\"Supplier\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8089/user/authAndCreateToken",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"user",
+						"authAndCreateToken"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"product_code\": \"potato_12345\",\n    \"product_name\": {\n        \"english\": \"podato\",\n        \"Hindi\": \"Aloo\"\n    },\n    \"product_Suplier_Id\": \"shopID\",\n    \"product_Quatity\": 5,\n    \"product_stock\": true,\n    \"product_price\": {\n        \"currency\": \"rupee\",\n        \"sell_price\": 10,\n        \"base_price\": 5,\n        \"product_code\": \"potato_12345\"\n    },\n    \"product_discount\": {\n        \"product_code\": \"potato_12345\",\n        \"country\": \"India\",\n        \"discount\": {\n            \"Bihar\": {\n                \"munger\": {\n                    \"discount\": \"2\"\n                },\n                \"Bhagalpur\": {\n                    \"discount\": \"3\"\n                }\n            },\n            \"Delhi\": {\n                \"katwari\": {\n                    \"discount\": \"2\"\n                },\n                \"hauzkaus\": {\n                    \"discount\": \"3\"\n                }\n            }\n        }\n    },\n    \"product_origin\": \"India\",\n    \"product_category\": {\n        \"image\": \"1234567\",\n        \"english\": \"Vegitable\",\n        \"Hindi\": \"hari sabji\"\n    },\n    \"product_brand\": \"\",\n    \"product_image\": \"potato_12345.jpg\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "Test",
+					"host": [
+						"Test"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost8089/user/genrate/passwordToken",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"phoneNumber\":\"4256290045\",\n    \"emailId\":\"amitabhi.sinha@gmail.com\",\n    \"userType\":\"Customer\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost8089/user/genrate/passwordToken",
+					"protocol": "http",
+					"host": [
+						"localhost8089"
+					],
+					"path": [
+						"user",
+						"genrate",
+						"passwordToken"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost8089/user/genrate/password",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"token\":\"454837\",\n    \"password\":\"hello\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost8089/user/genrate/password",
+					"protocol": "http",
+					"host": [
+						"localhost8089"
+					],
+					"path": [
+						"user",
+						"genrate",
+						"password"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8089/genrateBin?",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8089/genrateBin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"genrateBin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8089/removeBin",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8089/removeBin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"removeBin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8089/destroySession",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8089/destroySession",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"destroySession"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost8089/genrateBin",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost8089/genrateBin",
+					"protocol": "http",
+					"host": [
+						"localhost8089"
+					],
+					"path": [
+						"genrateBin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8089/genrateBin",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8089/genrateBin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"genrateBin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8089/supplier/saveProduct",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"productRequest\": [\n        {\n            \"product_code\": \"potato_12345\",\n            \"name\": \"potato_12345_en podato\",\n            \"discription\": \"potato_12345_des_en Good for health with hig calory\",\n            \"supplier_id\": \"123456\",\n            \"quantity\": 5,\n            \"orgin\": \"INDIA\",\n            \"brand\": \"Vegitable\",\n            \"productImage\": 1234567,\n            \"startDate\": \"27062020\",\n            \"endDate\": \"27062030\",\n            \"govApproved\": \"Yes\",\n            \"categoryCode\": \"cat_12345\",\n            \"currencyType\": \"RS\",\n            \"sell_price\": 10,\n            \"base_price\": 5,\n            \"discountType\": \"PERCENTAGE\",\n            \"discount\": \"5\",\n            \"discountStartDate\": \"27062020\",\n            \"discountEndDate\": \"27062030\",\n            \"category_code\": \"cat_12345\",\n            \"category_name\": \"Vegitable\",\n            \"category_description\": \"Good for Health\",\n            \"categoryImageId\": 123456\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8089/supplier/saveProduct",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"supplier",
+						"saveProduct"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8089/supplier/getAllProduct",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8089/supplier/getAllProduct",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"supplier",
+						"getAllProduct"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8089/supplier/getAllProduct/123456/",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8089/supplier/getAllProduct/123456/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"supplier",
+						"getAllProduct",
+						"123456",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8089/supplier/uploadProduct",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "productFile",
+							"type": "file",
+							"src": "/Users/amitabhsinha/Desktop/GMAT-Practice-Grid.xlsx"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8089/supplier/uploadProduct",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"supplier",
+						"uploadProduct"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8089/supplier/uploadFile",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI0MjU2MjkwMDQ1IiwiZXhwIjoxNTk0NzQ2MTcyLCJpYXQiOjE1OTQ3MTAxNzJ9.h5dmjBtIPLWyzzEauA6bPVstDE1S3HKWL4x2nG0A7P0",
+						"type": "text"
+					},
+					{
+						"key": "User_Type",
+						"value": "Supplier",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/Users/amitabhsinha/Desktop/Test.numbers"
+						},
+						{
+							"key": "supplierId",
+							"value": "12345",
+							"type": "text"
+						},
+						{
+							"key": "fileType",
+							"value": "image",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8089/supplier/uploadFile",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"supplier",
+						"uploadFile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8089/supplier/uploadMultipleFiles",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI0MjU2MjkwMDQ1IiwiZXhwIjoxNTk0NzQ2MTcyLCJpYXQiOjE1OTQ3MTAxNzJ9.h5dmjBtIPLWyzzEauA6bPVstDE1S3HKWL4x2nG0A7P0",
+						"type": "text"
+					},
+					{
+						"key": "User_Type",
+						"value": "Supplier",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "supplierId",
+							"value": "12345",
+							"type": "text"
+						},
+						{
+							"key": "fileType",
+							"value": "image",
+							"type": "text"
+						},
+						{
+							"key": "files",
+							"type": "file",
+							"src": [
+								"/Users/amitabhsinha/Desktop/GMAT-Practice-Grid.numbers",
+								"/Users/amitabhsinha/Desktop/GMAT-Practice-Grid.xlsx"
+							]
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8089/supplier/uploadMultipleFiles",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"supplier",
+						"uploadMultipleFiles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8089/supplier/donwnloadFile",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI0MjU2MjkwMDQ1IiwiZXhwIjoxNTk0NzQ2MTcyLCJpYXQiOjE1OTQ3MTAxNzJ9.h5dmjBtIPLWyzzEauA6bPVstDE1S3HKWL4x2nG0A7P0",
+						"type": "text"
+					},
+					{
+						"key": "User_Type",
+						"value": "Supplier",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"fileName\": \"GMAT-Practice-Grid.xlsx\",\n    \"supplierId\": \"12345\",\n    \"fileType\": \"image\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8089/supplier/donwnloadFile",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"supplier",
+						"donwnloadFile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8089/supplier/deleteProduct/cat_12345_123456 Copy",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI0MjU2MjkwMDQ1IiwiZXhwIjoxNTk0ODExNDU5LCJpYXQiOjE1OTQ3NzU0NTl9.4gT6ss8KrcBf-_emSwNZ9cJn76XkzXWwC5J4wNWvAwQ:"
+					},
+					{
+						"key": "User_Type",
+						"type": "text",
+						"value": "Supplier"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8089/supplier/deleteProduct/potato_12349_123456",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"supplier",
+						"deleteProduct",
+						"potato_12349_123456"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8089/supplier/categoryDetail/cat_12345_123456",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI0MjU2MjkwMDQ1IiwiZXhwIjoxNTk0ODExNDU5LCJpYXQiOjE1OTQ3NzU0NTl9.4gT6ss8KrcBf-_emSwNZ9cJn76XkzXWwC5J4wNWvAwQ",
+						"type": "text"
+					},
+					{
+						"key": "User_Type",
+						"value": "Supplier",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8089/supplier/categoryDetail/cat_12345_123456",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"supplier",
+						"categoryDetail",
+						"cat_12345_123456"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
