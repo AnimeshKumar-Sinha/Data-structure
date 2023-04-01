@@ -377,22 +377,14 @@ public class StreamSorter {
 
 	private class StringWrapper implements Comparable<StringWrapper>{
 
-		
 
 		private final String string;
 
-		
-
 		public StringWrapper(String line){
-
 			this.string = line;
-
 		}
 
-
-
 		@Override
-
 		public int compareTo(StringWrapper o) {
 
 			return string.compareTo(o.string);
